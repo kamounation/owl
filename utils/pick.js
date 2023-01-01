@@ -5,7 +5,9 @@
  * @returns {Object}
  */
 
-export const pick = (object, keys) => {
+exports.pick = pick;
+
+const pick = (object, keys) => {
   return keys.reduce((obj, key) => {
     if (object && Object.prototype.hasOwnProperty.call(object, key)) {
       obj[key] = object[key];
