@@ -6,4 +6,9 @@ const configs = {
   NODE_ENV: process.env.NODE_ENV,
 };
 
-module.exports = configs;
+const conifgLoader = (param) => {
+  configs.NODE_ENV = process.env.NODE_ENV || param;
+};
+
+exports.conifgLoader = conifgLoader;
+exports.conifgs = configs;

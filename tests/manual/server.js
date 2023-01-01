@@ -5,6 +5,14 @@ class TestController {
   getMsg = OwlFactory.catchAsync(async (req, res) => {
     res.send('welcome to this endpoint');
   });
+
+  sendMsg = OwlFactory.catchAsync(async (req, res, next) => {
+    const { body } = req;
+    if (!body.name)
+      return next(new OwlFactory.AppRes(OwlFactory.httpStatus.BAD_REQUEST, 'provide a name field in the body object'));
+
+    res.status(200).json(body);
+  });
 }
 
 class TestRoute {
@@ -20,6 +28,7 @@ class TestRoute {
 
   initializeRoutes() {
     this.router.get(`${this.path}`, this.controller.getMsg);
+    this.router.post(`${this.path}`, this.controller.sendMsg);
   }
 }
 

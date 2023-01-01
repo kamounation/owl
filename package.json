@@ -1,6 +1,6 @@
 {
   "name": "owl-factory",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "owl is a light-weight fast express sugar-coat for making software development faster ",
   "type": "commonjs",
   "maintainers": [
