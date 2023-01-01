@@ -1,9 +1,10 @@
 {
   "name": "owl-factory",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "owl is a light-weight fast express sugar-coat for making software development faster ",
-  "type": "module",
+  "type": "commonjs",
   "maintainers": [],
+  "contributors": [],
   "repository": "https://github.com/kamounation/owl",
   "engines": {
     "node": ">=14.0.0"
@@ -17,15 +18,11 @@
     "dev": "cross-env NODE_ENV=development nodemon tests/manual/server.js",
     "start": "cross-env NODE_ENV=development node tests/manual/server.js"
   },
-  "exports": {
-    ".": "./lib/index.js",
-    "./utils": "./utils/index.js",
-    "./config": "./config/index.js",
-    "./package.json": "./package.json"
-  },
   "files": [
-    "lib",
-    "utils"
+    "lib/",
+    "utils/",
+    "config/",
+    "index.js"
   ],
   "keywords": [
     "express",

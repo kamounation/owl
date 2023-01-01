@@ -1,8 +1,11 @@
-/**@typedef {import('../lib/index')} */
-import { config } from 'dotenv';
+'use strict';
+
+const { config } = require('dotenv');
 
 config({});
 
-export const configs = {
+const configs = {
   NODE_ENV: process.env.NODE_ENV,
 };
+
+module.exports = configs;
