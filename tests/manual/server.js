@@ -1,4 +1,4 @@
-import OwlFactory from '../../lib/index';
+import {OwlFactory} from '../../lib/index.js';
 
 const router = (req, res) => {
   res.send('You have reached this route');
