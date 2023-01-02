@@ -1,6 +1,6 @@
 {
   "name": "owl-factory",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "owl is a light-weight fast express sugar-coat library for making software development faster ",
   "type": "commonjs",
   "maintainers": [
@@ -23,7 +23,8 @@
     "prettier:fix": "prettier --write **/*.js",
     "dev": "cross-env NODE_ENV=development nodemon tests/manual/server.js",
     "start": "cross-env NODE_ENV=development node tests/manual/server.js",
-    "push": "npm publish"
+    "push": "npm publish",
+    "build": "tsc"
   },
   "publishConfig": {
     "access": "public"
@@ -61,6 +62,7 @@
     "eslint-plugin-security": "^1.5.0",
     "lint-staged": "^13.1.0",
     "nodemon": "^2.0.20",
-    "prettier": "^2.8.1"
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4"
   }
 }
