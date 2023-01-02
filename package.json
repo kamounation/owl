@@ -1,7 +1,7 @@
 {
   "name": "owl-factory",
   "version": "0.0.6",
-  "description": "owl is a light-weight fast express sugar-coat for making software development faster ",
+  "description": "owl is a light-weight fast express sugar-coat library for making software development faster ",
   "type": "commonjs",
   "maintainers": [
     "Christopher Egbaaibon <https://github.com/chrisegbaaaibon>",
