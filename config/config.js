@@ -6,6 +6,10 @@ const configs = {
   NODE_ENV: process.env.NODE_ENV,
 };
 
+/**
+ *
+ * @param {string|number} param
+ */
 const conifgLoader = (param) => {
   configs.NODE_ENV = process.env.NODE_ENV || param;
 };
