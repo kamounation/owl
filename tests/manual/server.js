@@ -6,9 +6,9 @@ class TestController {
   getMsg = OwlFactory.catchAsync(async (req, res) => {
     res.json({
       success: true,
-      message: "Welcome to this endpoint",
-      isOperational: true
-    })
+      message: 'Welcome to this endpoint',
+      isOperational: true,
+    });
   });
 
   sendMsg = OwlFactory.catchAsync(async (req, res, next) => {
