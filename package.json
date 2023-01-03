@@ -1,6 +1,6 @@
 {
   "name": "owl-factory",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "owl is a light-weight fast express sugar-coat library for making software development faster ",
   "type": "commonjs",
   "maintainers": [
@@ -53,6 +53,8 @@
     "moment": "^2.29.4",
     "mongoose": "^6.8.2",
     "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.28.0",
     "winston": "^3.8.2"
   },
   "devDependencies": {

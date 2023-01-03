@@ -6,17 +6,16 @@ declare class OwlFactory {
      * @param {Array<{path?: string; router:  import("express").Router}>} routes
      * @param {string|number} port
      * @param {string|number} env
-     * @param {{mongodbConfig: {url:string, options:Object}, otherDbConfig: Function}} param3
+     * @param {{mongodbConfig: {url:string, options:Object}}} param3
      */
     constructor(routes: Array<{
         path?: string;
         router: import("express").Router;
-    }>, port: string | number, env: string | number, { mongodbConfig, otherDbConfig }: {
+    }>, port: string | number, env: string | number, { mongodbConfig }: {
         mongodbConfig: {
             url: string;
             options: any;
         };
-        otherDbConfig: Function;
     });
     app: import(".pnpm/@types+express-serve-static-core@4.17.32/node_modules/@types/express-serve-static-core").Express;
     env: string | number;
