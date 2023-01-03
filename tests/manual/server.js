@@ -4,7 +4,11 @@ const User = require('./model');
 
 class TestController {
   getMsg = OwlFactory.catchAsync(async (req, res) => {
-    res.send('welcome to this endpoint');
+    res.json({
+      success: true,
+      message: 'Welcome to this endpoint',
+      isOperational: true,
+    });
   });
 
   sendMsg = OwlFactory.catchAsync(async (req, res, next) => {
