@@ -6,9 +6,9 @@ Owl.js makes it possible for junior developers to write code in an environment s
 
 With owl.js code is written smaller as it has many repetitive features taken account of and put into the engine which is then exposed to the developer.
 
-
 # Installation
-To install the package, run: 
+
+To install the package, run:
 
 `npm install owl-factory`
 
@@ -20,43 +20,42 @@ Here's an example of how you can use it:
 
     const OwlFactory = require('owl-factory');
 
-	class TestController {
-		constructor() {}
+    class TestController {
+    	constructor() {}
 
-		getMsg = OwlFactory.catchAsync(async (req, res, next) => {
-			res.send('welcome to this endpoint');
-		});
-		sendMsg = OwlFactory.catchAsync(async (req, res, next) => {
-			const { body } = req;
-			if (!body.name)
-				return next(
-					new OwlFactory.AppRes(
-						OwlFactory.httpStatus.BAD_REQUEST,
-						'error, provide name in json'
-					)
-				);
+    	getMsg = OwlFactory.catchAsync(async (req, res, next) => {
+    		res.send('welcome to this endpoint');
+    	});
+    	sendMsg = OwlFactory.catchAsync(async (req, res, next) => {
+    		const { body } = req;
+    		if (!body.name)
+    			return next(
+    				new OwlFactory.AppRes(
+    					OwlFactory.httpStatus.BAD_REQUEST,
+    					'error, provide name in json'
+    				)
+    			);
 
-			res.status(200).json(body);
-		});
-	}
+    		res.status(200).json(body);
+    	});
+    }
 
-	class TestRoute {
-		path = '/test';
-		router = OwlFactory.Router();
-		controller = new TestController();
-		constructor() {
-			this.initializeRoutes();
-		}
-		initializeRoutes() {
-			this.router.get(`${this.path}`, this.controller.getMsg);
-			this.router.post(`${this.path}`, this.controller.sendMsg);
-		}
-	}
+    class TestRoute {
+    	path = '/test';
+    	router = OwlFactory.Router();
+    	controller = new TestController();
+    	constructor() {
+    		this.initializeRoutes();
+    	}
+    	initializeRoutes() {
+    		this.router.get(`${this.path}`, this.controller.getMsg);
+    		this.router.post(`${this.path}`, this.controller.sendMsg);
+    	}
+    }
 
-	const server = new OwlFactory([new TestRoute()], '9999');
+    const server = new OwlFactory([new TestRoute()], '9999');
 
-	server.listen();
-
+    server.listen();
 
 ## CatchAsync
 
@@ -65,9 +64,8 @@ The `catchAsync` function is a utility function that wraps your route handler fu
 Here's an example of how you can use it:
 
     const routeHandler = OwlFactory.catchAsync(async (req, res, next) => {
-		// your route code here
-	});
-
+    	// your route code here
+    });
 
 ## AppRes
 
@@ -76,13 +74,12 @@ The `AppRes` class is a custom error class that you can use to return custom err
 Here's an example of how you can use it:
 
     if (!body.name)
-	return next(
-		new OwlFactory.AppRes(
-			OwlFactory.httpStatus.BAD_REQUEST,
-			'error, provide name in json'
-		)
-	);
-
+    return next(
+    	new OwlFactory.AppRes(
+    		OwlFactory.httpStatus.BAD_REQUEST,
+    		'error, provide name in json'
+    	)
+    );
 
 ## HttpStatus
 
@@ -92,6 +89,8 @@ Here's an example of how you can use it:
 
     new OwlFactory.AppRes(OwlFactory.httpStatus.BAD_REQUEST, 'error message')
 
+## License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 #### Please note that this package is still in production and more versions will be released in the future. Stay tuned for updates and new features!
