@@ -1,7 +1,7 @@
 {
   "name": "owl-factory",
-  "version": "0.0.6",
-  "description": "owl is a light-weight fast express sugar-coat for making software development faster ",
+  "version": "0.1.2",
+  "description": "owl is a light-weight fast express sugar-coat library for making software development faster ",
   "type": "commonjs",
   "maintainers": [
     "Christopher Egbaaibon <https://github.com/chrisegbaaaibon>",
@@ -23,7 +23,8 @@
     "prettier:fix": "prettier --write **/*.js",
     "dev": "cross-env NODE_ENV=development nodemon tests/manual/server.js",
     "start": "cross-env NODE_ENV=development node tests/manual/server.js",
-    "push": "npm publish"
+    "push": "npm publish",
+    "build": "tsc"
   },
   "publishConfig": {
     "access": "public"
@@ -32,7 +33,9 @@
     "lib/",
     "utils/",
     "config/",
-    "index.js"
+    "index.js",
+    "index.d.ts",
+    "index.d.ts.map"
   ],
   "keywords": [
     "express",
@@ -50,9 +53,12 @@
     "moment": "^2.29.4",
     "mongoose": "^6.8.2",
     "morgan": "^1.10.0",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.28.0",
     "winston": "^3.8.2"
   },
   "devDependencies": {
+    "@types/express": "^4.17.15",
     "eslint": "^8.30.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
@@ -61,6 +67,7 @@
     "eslint-plugin-security": "^1.5.0",
     "lint-staged": "^13.1.0",
     "nodemon": "^2.0.20",
-    "prettier": "^2.8.1"
+    "prettier": "^2.8.1",
+    "typescript": "^4.9.4"
   }
 }
