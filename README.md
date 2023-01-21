@@ -94,3 +94,25 @@ Here's an example of how you can use it:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 #### Please note that this package is still in production and more versions will be released in the future. Stay tuned for updates and new features!
+
+### BENCHMARK
+
+To run benchmark for this app, navigate to the brnchmark folder
+
+```bash
+    cd benchmarks
+```
+
+then run
+
+```bash
+    node benchmarks.js
+```
+
+to start the server then,
+
+```bash
+    make all
+```
+
+to perform the benchmark
