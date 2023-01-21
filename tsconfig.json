@@ -3,7 +3,8 @@
         "lib/**/*",
         "index.js",
         "utils/**/*",
-        "config/**/*"
+        "config/**/*",
+        "benchmarks/**/*"
     ],
     "compilerOptions": {
         // Tells TypeScript to read JS files, as
