@@ -1,31 +1,27 @@
 /* eslint-disable max-classes-per-file */
 const { logger } = require('../../index');
-const OwlFactory = require('../../index');
+const Dolph = require('../../index');
 const User = require('./model');
 const User2 = require('./mySqlModel');
 const sequelize = require('./mysqldbConf');
 
 class TestController {
-  getMsg = OwlFactory.catchAsync(async (req, res) => {
+  getMsg = Dolph.catchAsync(async (req, res) => {
     res.json({
-      success: true,
       message: 'Welcome to this endpoint',
-      isOperational: true,
     });
   });
 
-  sendMsg = OwlFactory.catchAsync(async (req, res, next) => {
+  sendMsg = Dolph.catchAsync(async (req, res, next) => {
     const { body } = req;
-    if (!body.name)
-      return next(new OwlFactory.AppRes(OwlFactory.httpStatus.BAD_REQUEST, 'provide a name field in the body object'));
+    if (!body.name) return next(new Dolph.AppRes(Dolph.httpStatus.BAD_REQUEST, 'provide a name field in the body object'));
     const user = await User.create(body);
     res.status(200).json(user);
   });
 
-  sendMsgMysql = OwlFactory.catchAsync(async (req, res, next) => {
+  sendMsgMysql = Dolph.catchAsync(async (req, res, next) => {
     const { body } = req;
-    if (!body.name)
-      return next(new OwlFactory.AppRes(OwlFactory.httpStatus.BAD_REQUEST, 'provide a name field in the body object'));
+    if (!body.name) return next(new Dolph.AppRes(Dolph.httpStatus.BAD_REQUEST, 'provide a name field in the body object'));
     const user = await User2.create(body);
     res.status(200).json(user);
   });
@@ -34,7 +30,7 @@ class TestController {
 class TestRoute {
   path = '/test';
 
-  router = OwlFactory.Router();
+  router = Dolph.Router();
 
   controller = new TestController();
 
@@ -60,7 +56,7 @@ const mongoConfig = {
   },
 };
 
-const server = new OwlFactory([new TestRoute()], '1313', 'development', { mongodbConfig: null });
+const server = new Dolph([new TestRoute()], '1313', 'development', { mongodbConfig: null });
 
 // In order to make use of another datbase you call it directly
 sequelize

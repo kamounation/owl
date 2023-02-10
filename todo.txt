@@ -1,1 +1,1 @@
-add env as a parameter to owlFactory so that error in error.js would not persist as NODE_ENV is currently only avvailable to logger.js
+write code that prevents user accesst to some owlFactory methods
