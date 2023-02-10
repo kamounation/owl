@@ -1,1 +1,1 @@
-module.exports = require('./lib/OwlFactory');
+module.exports = require('./lib/Dolph');
