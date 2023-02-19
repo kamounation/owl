@@ -1,10 +1,10 @@
-# OWL-FACTORY
+# DolphJs
 
-Owl.js is an express.js library for making software development easier by taking care of all the unneccessary tasks developers have to worry about.
+DolphJs is an express.js library for making software development easier by taking care of all the unneccessary tasks developers have to worry about.
 
-Owl.js makes it possible for junior developers to write code in an environment set-up as if they are senior's. It supports robust codebase system and the best error handling middlewares.
+DolphJs makes it possible for junior developers to write code in an environment set-up as if they are senior's. It supports robust codebase system and the best error handling middlewares.
 
-With owl.js code is written smaller as it has many repetitive features taken account of and put into the engine which is then exposed to the developer.
+With dolphJs code is written smaller as it has many repetitive features taken account of and put into the engine which is then exposed to the developer.
 
 # Installation
 
@@ -18,20 +18,20 @@ To use the package, you'll need to require it in your project and then set up yo
 
 Here's an example of how you can use it:
 
-    const OwlFactory = require('owl-factory');
+    const Dolph = require('owl-factory');
 
     class TestController {
     	constructor() {}
 
-    	getMsg = OwlFactory.catchAsync(async (req, res, next) => {
+    	getMsg = Dolph.catchAsync(async (req, res, next) => {
     		res.send('welcome to this endpoint');
     	});
-    	sendMsg = OwlFactory.catchAsync(async (req, res, next) => {
+    	sendMsg = Dolph.catchAsync(async (req, res, next) => {
     		const { body } = req;
     		if (!body.name)
     			return next(
-    				new OwlFactory.AppRes(
-    					OwlFactory.httpStatus.BAD_REQUEST,
+    				new Dolph.AppRes(
+    					Dolph.httpStatus.BAD_REQUEST,
     					'error, provide name in json'
     				)
     			);
@@ -42,7 +42,7 @@ Here's an example of how you can use it:
 
     class TestRoute {
     	path = '/test';
-    	router = OwlFactory.Router();
+    	router = Dolph.Router();
     	controller = new TestController();
     	constructor() {
     		this.initializeRoutes();
@@ -53,9 +53,9 @@ Here's an example of how you can use it:
     	}
     }
 
-    const server = new OwlFactory([new TestRoute()], '9999');
+    const dolph = new Dolph([new TestRoute()], '9999');
 
-    server.listen();
+    dolph.listen();
 
 ## CatchAsync
 
@@ -63,7 +63,7 @@ The `catchAsync` function is a utility function that wraps your route handler fu
 
 Here's an example of how you can use it:
 
-    const routeHandler = OwlFactory.catchAsync(async (req, res, next) => {
+    const routeHandler = Dolph.catchAsync(async (req, res, next) => {
     	// your route code here
     });
 
@@ -75,19 +75,20 @@ Here's an example of how you can use it:
 
     if (!body.name)
     return next(
-    	new OwlFactory.AppRes(
-    		OwlFactory.httpStatus.BAD_REQUEST,
+    	new Dolph.AppRes(
+    		Dolph.httpStatus.BAD_REQUEST,
     		'error, provide name in json'
     	)
     );
 
 ## HttpStatus
 
-The `httpStatus` object is an object containing commonly used HTTP status codes as properties. You can use these to set the status code of your custom error responses.
+The `httpStatus` object is an object containing commonly used HTTP status codes as properties. You can use this to set the status code of your custom error responses.
+It is just an export of the original http-status package, here [https://github.com/adaltas/node-http-status]
 
 Here's an example of how you can use it:
 
-    new OwlFactory.AppRes(OwlFactory.httpStatus.BAD_REQUEST, 'error message')
+    new Dolph.AppRes(Dolph.httpStatus.BAD_REQUEST, 'error message')
 
 ## License
 

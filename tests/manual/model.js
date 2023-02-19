@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const { mongoose } = require('../../index');
 
-const schema = new Schema(
+const schema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -21,4 +21,4 @@ const schema = new Schema(
   }
 );
 
-module.exports = model('User', schema);
+module.exports = mongoose.model('User', schema);

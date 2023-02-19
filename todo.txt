@@ -1,1 +1,3 @@
-write code that prevents user accesst to some owlFactory methods
+Write code that prevents user access to some Dolph methods
+Add Multer to the app so that dolph can process files without the use of packages like multer
+Use `chalk` to give logged info colour
