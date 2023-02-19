@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-const OwlFactory = require('..');
+const Dolph = require('..');
 
 let n = parseInt(process.env.MW || '1', 10);
 let server;
@@ -12,7 +12,7 @@ while (n--) {
   class TestRouter {
     path = '/';
 
-    router = OwlFactory.Router();
+    router = Dolph.Router();
 
     constructor() {
       this.Routes();
@@ -24,13 +24,13 @@ while (n--) {
       });
     }
   }
-  server = new OwlFactory([new TestRouter()], 3100, 'test', { mongodbConfig: null });
+  server = new Dolph([new TestRouter()], 3100, 'test', { mongodbConfig: null });
 }
 
 class TestRouter {
   path = '/';
 
-  router = OwlFactory.Router();
+  router = Dolph.Router();
 
   constructor() {
     this.Routes();
@@ -43,6 +43,6 @@ class TestRouter {
   }
 }
 
-server = new OwlFactory([new TestRouter()], 3100, 'test', { mongodbConfig: null });
+server = new Dolph([new TestRouter()], 3100, 'test', { mongodbConfig: null });
 
 server.listen();

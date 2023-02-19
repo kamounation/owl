@@ -1,0 +1,13 @@
+# configuration
+tslint.json
+.prettierrc
+.prettierignore
+pnpm-lock.yaml
+todo.txt
+benchmark.md
+.eslintignore
+.env.example
+.editorConfig
+.eslintrc.json
+
+*.tsbuildinfo
