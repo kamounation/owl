@@ -1,6 +1,6 @@
 {
   "name": "owl-factory",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "description": "owl is a light-weight fast express sugar-coat library for making software development faster ",
   "type": "commonjs",
   "maintainers": [
@@ -46,9 +46,11 @@
   "author": "Utibeabasi ekong <kamounation@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "helmet": "^6.0.1",
     "http-status": "^1.5.3",
     "moment": "^2.29.4",
     "mongoose": "^6.8.2",
