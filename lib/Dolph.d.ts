@@ -7,7 +7,7 @@ declare class Dolph {
      * @param {string|number} port
      * @param {string|number} env
      * @param {{url:string, options:Object}} mongodbConfig
-     * @param {Array<import("express").IRouterHandler>} externalMiddlewares
+     * @param {Array<any>} externalMiddlewares
      */
     constructor(routes: Array<{
         path?: string;
@@ -15,7 +15,7 @@ declare class Dolph {
     }>, port: string | number, env: string | number, mongodbConfig: {
         url: string;
         options: any;
-    }, externalMiddlewares: Array<express.IRouterHandler<any>>);
+    }, externalMiddlewares: Array<any>);
     app: import(".pnpm/@types+express-serve-static-core@4.17.32/node_modules/@types/express-serve-static-core").Express;
     env: string | number;
     port: string | number;
@@ -40,9 +40,9 @@ declare class Dolph {
     initalizeMiddleWares(): void;
     /**
      *
-     * @param {Array<import("express").IRouterHandler>} middlewares
+     * @param {Array<any>} middlewares
      */
-    initExternalMiddleWares(middlewares: Array<express.IRouterHandler<any>>): void;
+    initExternalMiddleWares(middlewares: Array<any>): void;
     initializeNotFoundHandler(): void;
     initializeConfig(env: any): void;
     initializeErrorHandlers(): void;
