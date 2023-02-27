@@ -1,7 +1,7 @@
 {
-  "name": "owl-factory",
-  "version": "0.1.9",
-  "description": "owl is a light-weight fast express sugar-coat library for making software development faster ",
+  "name": "@dolph/core",
+  "version": "0.0.1",
+  "description": "dolph is a light-weight fast express sugar-coat library for making software development faster ",
   "type": "commonjs",
   "maintainers": [
     "Christopher Egbaaibon <https://github.com/chrisegbaaaibon>",
@@ -40,8 +40,10 @@
   "keywords": [
     "express",
     "node",
+    "dolph",
     "owl",
-    "eslint"
+    "dolphjs",
+    "owljs"
   ],
   "author": "Utibeabasi ekong <kamounation@gmail.com>",
   "license": "MIT",
