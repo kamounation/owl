@@ -1,5 +1,5 @@
 {
-  "name": "@dolph/core",
+  "name": "@dolphjs/core",
   "version": "0.0.1",
   "description": "dolph is a light-weight fast express sugar-coat library for making software development faster ",
   "type": "commonjs",
