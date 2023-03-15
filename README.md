@@ -10,7 +10,9 @@ With dolphJs code is written smaller as it has many repetitive features taken ac
 
 To install the package, run:
 
-`npm install owl-factory`
+`npm install @dolphjs/core`
+
+or `npm install dolph-cli -g` to make use of the CLI tool.
 
 ## Usage
 
@@ -18,7 +20,7 @@ To use the package, you'll need to require it in your project and then set up yo
 
 Here's an example of how you can use it:
 
-    const Dolph = require('owl-factory');
+    const Dolph = require('@dolphjs/core');
 
     class TestController {
     	constructor() {}
