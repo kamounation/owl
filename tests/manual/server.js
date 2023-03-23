@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-const { catchAsync, Router, AppRes, httpStatus, MediaProcessor } = require('../../index');
+const { catchAsync, Router, AppRes, httpStatus, MediaParser } = require('../../index');
 const Dolph = require('../../index');
 const User = require('./model');
 const User2 = require('./mySqlModel');
@@ -40,7 +40,7 @@ class TestRoute {
 
   controller = new TestController();
 
-  mediaProcessor = new MediaProcessor({}, ['.pdf', '.jpg', '.jpeg']);
+  mediaParser = new MediaParser({ name: 'upload' });
 
   constructor() {
     this.initializeRoutes();
@@ -49,7 +49,7 @@ class TestRoute {
   initializeRoutes() {
     this.router.get(`${this.path}`, this.controller.getMsg);
     this.router.get(`${this.path}/data`, this.controller.getData);
-    this.router.post(`${this.path}`, this.mediaProcessor.singleUpload('upload'), this.controller.sendMsg);
+    this.router.post(`${this.path}`, this.mediaParser.singleUpload, this.controller.sendMsg);
     this.router.post(`${this.path}/mysql`, this.controller.sendMsgMysql);
   }
 }
@@ -67,9 +67,7 @@ const mongoConfig = {
 const routes = [new TestRoute()];
 // It is recommended to attach other services using prototyping
 //  in order not to crowd the constructor initiaizer
-const dolph = new Dolph(routes, '1313', 'development');
-dolph.initMongo(mongoConfig);
-dolph.initExternalMiddleWares([]);
+const dolph = new Dolph(routes, '1313', 'development', mongoConfig, []);
 dolph.listen();
 // // In order to make use of another datbase you call it directly
 // sequelize
