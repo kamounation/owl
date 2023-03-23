@@ -16,7 +16,7 @@ declare class Dolph {
         url: string;
         options: any;
     }, externalMiddlewares: Array<any>);
-    app: import(".pnpm/@types+express-serve-static-core@4.17.32/node_modules/@types/express-serve-static-core").Express;
+    app: import("express-serve-static-core").Express;
     env: string | number;
     port: string | number;
     /**
@@ -51,7 +51,7 @@ declare class Dolph {
     initClosureHandler(): void;
 }
 declare namespace Dolph {
-    export { pick, catchAsync, logger, Router, httpStatus, AppRes, Ip, mongoose };
+    export { pick, catchAsync, logger, Router, httpStatus, AppRes, Ip, MediaProcessor, mongoose };
 }
 import { Server } from "http";
 import { IncomingMessage } from "http";
@@ -64,5 +64,6 @@ declare const Router: typeof express.Router;
 import httpStatus = require("http-status");
 import AppRes = require("./appRes");
 import { Ip } from "./Ip";
+import MediaProcessor = require("./mediaProcessor");
 import { default as mongoose } from "mongoose";
 //# sourceMappingURL=Dolph.d.ts.map
