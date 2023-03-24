@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-const { catchAsync, Router, AppRes, httpStatus, MediaParser } = require('../../index');
+const { catchAsync, Router, AppRes, httpStatus, mediaParser } = require('../../index');
 const Dolph = require('../../index');
 const User = require('./model');
 const User2 = require('./mySqlModel');
@@ -19,10 +19,9 @@ class TestController {
 
   sendMsg = catchAsync(async (req, res, next) => {
     const { body, file } = req;
-    console.log(file);
     if (!body.name) return next(new AppRes(httpStatus.BAD_REQUEST, 'provide a name field in the body object'));
     const user = await User.create(body);
-    res.status(200).json(user);
+    res.status(200).json({ user, file });
   });
 
   sendMsgMysql = catchAsync(async (req, res, next) => {
@@ -40,8 +39,6 @@ class TestRoute {
 
   controller = new TestController();
 
-  mediaParser = new MediaParser({ name: 'upload' });
-
   constructor() {
     this.initializeRoutes();
   }
@@ -49,7 +46,11 @@ class TestRoute {
   initializeRoutes() {
     this.router.get(`${this.path}`, this.controller.getMsg);
     this.router.get(`${this.path}/data`, this.controller.getData);
-    this.router.post(`${this.path}`, this.mediaParser.singleUpload, this.controller.sendMsg);
+    this.router.post(
+      `${this.path}`,
+      mediaParser({ type: 'single', storage: {}, fieldname: 'upload' }),
+      this.controller.sendMsg
+    );
     this.router.post(`${this.path}/mysql`, this.controller.sendMsgMysql);
   }
 }
