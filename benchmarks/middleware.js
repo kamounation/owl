@@ -24,7 +24,7 @@ while (n--) {
       });
     }
   }
-  server = new Dolph([new TestRouter()], 3100, 'test', { mongodbConfig: null });
+  server = new Dolph([new TestRouter()], 3100, 'test', { mongodbConfig: null }, []);
 }
 
 class TestRouter {
@@ -43,6 +43,6 @@ class TestRouter {
   }
 }
 
-server = new Dolph([new TestRouter()], 3100, 'test', { mongodbConfig: null });
+server = new Dolph([new TestRouter()], 3100, 'test', { mongodbConfig: null }, []);
 
 server.listen();
