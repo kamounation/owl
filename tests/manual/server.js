@@ -3,6 +3,7 @@ const { catchAsync, Router, AppRes, httpStatus, mediaParser } = require('../../i
 const Dolph = require('../../index');
 const User = require('./model');
 const User2 = require('./mySqlModel');
+const io = require('socket.io');
 // const sequelize = require('./mysqldbConf');
 
 class TestController {
@@ -69,7 +70,31 @@ const routes = [new TestRoute()];
 // It is recommended to attach other services using prototyping
 //  in order not to crowd the constructor initiaizer
 const dolph = new Dolph(routes, '1313', 'development', mongoConfig, []);
-dolph.listen();
+const server = dolph.listen();
+
+const socket = io(server, {
+  cors: {
+    origin: '*',
+    credentials: true,
+  },
+});
+
+global.onlineUsers = new Map();
+
+// eslint-disable-next-line no-shadow
+socket.on('connection', (socket) => {
+  console.log(socket);
+  socket.on('add-user', (userId) => {
+    // eslint-disable-next-line no-undef
+    onlineUsers.set(userId, socket.id);
+
+    // eslint-disable-next-line no-undef
+    if (onlineUsers.get(userId)) {
+      socket.emit('active', userId);
+    }
+  });
+});
+
 // // In order to make use of another datbase you call it directly
 // sequelize
 //   .sync()
