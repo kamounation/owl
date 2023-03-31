@@ -1,7 +1,7 @@
 {
   "name": "@dolphjs/core",
   "version": "0.0.2",
-  "description": "dolph is a light-weight fast express sugar-coat library for making software development faster ",
+  "description": "dolph is a light-weight, fast, express sugar-coat library for making software development faster ",
   "type": "commonjs",
   "maintainers": [
     "Christopher Egbaaibon <https://github.com/chrisegbaaaibon>",
@@ -16,8 +16,9 @@
     "node": ">=14.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint:fix": "eslint . --fix",
+    "test": "jest -i --colors --verbose --detectOpenHandles",
+    "test: watch": "jest --watch",
+    "lint: fix": "eslint . --fix",
     "lint": "eslint .",
     "prettier": "prettier --check **/*.js",
     "prettier:fix": "prettier --write **/*.js",
@@ -48,7 +49,6 @@
   "author": "Utibeabasi ekong <kamounation@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "@types/multer": "^1.4.7",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
@@ -66,12 +66,15 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.15",
+    "@types/jest": "^29.5.0",
+    "@types/multer": "^1.4.7",
     "eslint": "^8.30.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-security": "^1.5.0",
+    "jest": "^29.5.0",
     "lint-staged": "^13.1.0",
     "nodemon": "^2.0.20",
     "prettier": "^2.8.1",

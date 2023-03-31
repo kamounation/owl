@@ -8,6 +8,9 @@ const enumerateErrorFormat = winston.format((info) => {
   return info;
 });
 
+/**
+ * logger is used as an alternative to the default javascrit `console.log`
+ */
 const logger = winston.createLogger({
   level: configs.conifgs.NODE_ENV === 'development' ? 'debug' : 'info',
   format: winston.format.combine(
