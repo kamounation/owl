@@ -21,34 +21,23 @@ declare class Dolph {
     port: string | number;
     /**
      * @returns {Server<typeof IncomingMessage, typeof ServerResponse>}
+     * function returns the dolphjs server which
+     * can be used for websocket connections
      */
     listen(): Server<typeof IncomingMessage, typeof ServerResponse>;
-    initMongo(config: any): void;
     /**
      *
      * @returns {express.Express}
+     * exposes the express application
      */
     server(): express.Express;
     /**
      *
-     * @param {Array<{path?: string; router: import("express").Router}>}  routes
-     */
-    initalizeRoutes(routes: Array<{
-        path?: string;
-        router: import("express").Router;
-    }>): void;
-    initalizeMiddleWares(): void;
-    /**
-     *
      * @param {Array<any>} middlewares
+     * property adds middlewares to the `express application`
      */
     initExternalMiddleWares(middlewares: Array<any>): void;
-    initializeNotFoundHandler(): void;
-    initializeConfig(env: any): void;
-    initializeErrorHandlers(): void;
-    exitHandler(): void;
-    unexpectedErrorHandler: (error: any) => void;
-    initClosureHandler(): void;
+    #private;
 }
 declare namespace Dolph {
     export { pick, catchAsync, logger, Router, httpStatus, AppRes, Ip, mediaParser, mongoose };

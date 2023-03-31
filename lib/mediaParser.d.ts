@@ -3,7 +3,7 @@ export = mediaParser;
  *
  * @param {{allowedExtensions?: string[], type:string, storage?: multer.DiskStorageOptions, fieldname: string,limit?:number
  * }} options
- * @returns
+ * mediaParser processes media files [built on multer]
  */
 declare function mediaParser(options: {
     allowedExtensions?: string[];

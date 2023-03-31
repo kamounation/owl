@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
 /* eslint-disable max-classes-per-file */
+const io = require('socket.io');
+const cors = require('cors');
 const { catchAsync, Router, AppRes, httpStatus, mediaParser } = require('../../index');
 const Dolph = require('../../index');
 const User = require('./model');
 const User2 = require('./mySqlModel');
-const io = require('socket.io');
 // const sequelize = require('./mysqldbConf');
 
 class TestController {
@@ -67,9 +69,10 @@ const mongoConfig = {
   },
 };
 const routes = [new TestRoute()];
+const middlewares = [cors({ origin: '*', credentials: true })];
 // It is recommended to attach other services using prototyping
 //  in order not to crowd the constructor initiaizer
-const dolph = new Dolph(routes, '1313', 'development', mongoConfig, []);
+const dolph = new Dolph(routes, '1313', 'development', mongoConfig, middlewares);
 const server = dolph.listen();
 
 const socket = io(server, {
